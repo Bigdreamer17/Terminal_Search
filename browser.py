@@ -9,7 +9,7 @@ valild_websites = [
         'medium.com'
 ]
 
-chrome_path = '/usr/bin/brave-browser %s'
+browser_path = '/usr/bin/brave-browser %s'
 
 def create_filter():
     filter = '('
@@ -21,8 +21,6 @@ def create_filter():
             filter += ' OR '
     return filter
 
-# print(sys.argv[1:])
-
 def create_query():
     query = sys.argv[1:]
     return ' '.join(query)
@@ -32,6 +30,6 @@ def create_url():
         print("Error: Please enter a valid search query")
     else:
         final_url = url + create_query() + create_filter()
-        webbrowser.get(chrome_path).open(final_url)
+        webbrowser.get(browser_path).open(final_url)
 
 create_url()
